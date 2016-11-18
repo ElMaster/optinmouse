@@ -3,7 +3,18 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     production_path: '/',
-   
+    cssmin: {
+
+      development: {
+        files: {
+          'checkbox/bootstrap-buttons.min.css': [
+            'bootstrap.css'
+
+          ]
+
+        }
+      }
+    },
     uglify: {
       options: {
         mangle: true,
@@ -30,7 +41,7 @@ module.exports = function (grunt) {
   // Load all grunt tasks
 
   // LESS Compiler
-  // grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   // Watch File Changes
   grunt.loadNpmTasks('grunt-contrib-watch');
   // Compress JS Files
@@ -41,6 +52,6 @@ module.exports = function (grunt) {
   // The default task (running "grunt" in console) is "watch"
 
   grunt.registerTask('process', ['newer:uglify']);
-  grunt.registerTask('default', ['uglify' , 'watch']);
+  grunt.registerTask('default', ['cssmin','uglify' , 'watch']);
   // grunt.registerTask('deploy', ['less', 'uglify', 'copy']);
 };
