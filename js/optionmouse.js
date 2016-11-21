@@ -14,8 +14,8 @@ if (typeof jQuery === 'undefined') {
             discount: '30',
             not_discount: '39.95',
             of_discount: '24.95',
-            url: '#',
-            cookies: true
+            url: '#'
+            // cookies: true
         }, options);
       
         var modalMouse_element_temp = 0;
@@ -40,16 +40,16 @@ if (typeof jQuery === 'undefined') {
         $("body").append("<style>.animated {-webkit-animation-duration: .7s; animation-duration: .7s; -webkit-animation-fill-mode: both;animation-fill-mode: both;} @keyframes pulse {from { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }50% {  -webkit-transform: scale3d(1.05, 1.05, 1.05);  transform: scale3d(1.05, 1.05, 1.05);  } to {  -webkit-transform: scale3d(1, 1, 1);  transform: scale3d(1, 1, 1);  } } @-webkit-keyframes pulse {from { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }50% {  -webkit-transform: scale3d(1.05, 1.05, 1.05);  transform: scale3d(1.05, 1.05, 1.05);  } to {  -webkit-transform: scale3d(1, 1, 1);  transform: scale3d(1, 1, 1);  } } .pulse { -webkit-animation-name: pulse;animation-name: pulse;}</style>");
        
 
-        if (options.cookies === true) {
-            $("body").append("<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js'></script>");
-        }
+        // if (options.cookies === true) {
+        //     $("body").append("<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js'></script>");
+        // }
 
         var cookiesSave = function () {
             $('._mouse-background').animate({opacity: 0}, 300, function() {
                 $('._mouse-background').remove();
             });
-            $.cookie('_cookieModal', 'open', { expires: 0.1, path: '/' });
-            modalMouse_element_temp = 0
+            // $.cookie('_cookieModal', 'open', { expires: 0.1, path: '/' });
+            modalMouse_element_temp = 1
         };
         var modalMouse = function () {
             $('body').append(TEMPLATE);
@@ -121,7 +121,7 @@ if (typeof jQuery === 'undefined') {
 
         var cookiesFn = function () {
 
-            if (!$.cookie('_cookieModal')) {
+            if (modalMouse_element_temp == 0) {
                 modalMouse();
             }
 
