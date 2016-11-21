@@ -274,9 +274,13 @@
 <script src="optionmouse.min.js"></script>
 
 <script>
-    //    $(document).optionMouse({
-    //        cookies: false
-    //    });
+        $(document).optionMouse({
+            cookies: true, // Проверка на подключения cookies на сайте. True - не подключены рание, плагин сам подключает
+            discount: '30', // Размер скидки в процентах
+            not_discount: '39.95', // Сумма без скидки
+            of_discount: '24.95', // Сумма со скидкой
+            url: '#' // Ссылка для кнопки
+        });
 </script>
 
 <style>
